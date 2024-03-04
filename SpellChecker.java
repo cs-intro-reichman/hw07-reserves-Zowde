@@ -65,12 +65,15 @@ public class SpellChecker {
 		String sw="";
           for(int i=0;i<dictionary.length;i++)
 		{
-		 
-                        if(threshold>=levenshtein(word, dictionary[i]))
-			   {
-                                 threshold=levenshtein(word, dictionary[i]);
-					sw=dictionary[i];
-			   }
+		   if(levenshtein(word,dictionary[i])==threshold)
+			 {
+                              return dictionary[i];
+			 }
+			dis=Math.abs(levenshtein(word,dictionary[i])-threshold);
+			if(i!=0&&dis>=Math.abs(levenshtein(word,dictionary[i])-threshold))//doesnt include the first iteration
+			{
+                          dis=Math.abs(levenshtein(word,dictionary[i])-threshold);
+			}
 		}
 		if(sw=="")
 		   sw=word;
