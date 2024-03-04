@@ -62,15 +62,19 @@ public class SpellChecker {
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		// Your code goes here
-		for(int i=0;i<dictionary.length;i++)
+		String sw="";
+          for(int i=0;i<dictionary.length;i++)
 		{
-		
-               if(threshold==levenshtein(word, dictionary[i]))
+		 
+                        if(threshold>=levenshtein(word, dictionary[i]))
 			   {
-                    return dictionary[i];
+                                 threshold=levenshtein(word, dictionary[i]);
+					sw=dictionary[i];
 			   }
 		}
-		return word;
+		if(sw=="")
+		   sw=word;
+		return sw;;
 	}
 
 }
