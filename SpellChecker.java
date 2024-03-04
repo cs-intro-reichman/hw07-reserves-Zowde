@@ -4,13 +4,27 @@ public class SpellChecker {
 
 	public static void main(String[] args) {
 		String word = args[0];
-		word=HashTagTokenizer.lowerCase((word));
+		word=lowerCase(word);
 		int threshold = Integer.parseInt(args[1]);
 		String[] dictionary = readDictionary("dictionary.txt");
 		String correction = spellChecker(word, threshold, dictionary);
 		System.out.println(correction);
 	}
-
+	public static String lowerCase(String s) {
+        String news="";
+       for(int i=0;i<s.length();i++)
+       {
+        if(s.charAt(i)>='A'&&s.charAt(i)<='Z')
+        {
+          news+=(char)(s.charAt(i)+32);
+        }
+        else
+        {
+        news+=s.charAt(i);
+        }
+       }
+        return news;
+    }
 	public static String tail(String str) 
 	{ 
 		if(str.length()==1)
