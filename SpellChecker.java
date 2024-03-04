@@ -46,6 +46,8 @@ public class SpellChecker {
 		{
 			return word1.length();
 		}  
+		word1=lowerCase(word1);
+		word2=lowerCase(word2);
 	 if(word1.charAt(0)==word2.charAt(0))
 		{ 
 			word1=tail(word1);
