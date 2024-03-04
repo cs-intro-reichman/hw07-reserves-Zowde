@@ -4,7 +4,7 @@ public class SpellChecker {
 
 	public static void main(String[] args) {
 		String word = args[0];
-		word=HashTagTokenizer.lowerCase((word))
+		word=HashTagTokenizer.lowerCase((word));
 		int threshold = Integer.parseInt(args[1]);
 		String[] dictionary = readDictionary("dictionary.txt");
 		String correction = spellChecker(word, threshold, dictionary);
