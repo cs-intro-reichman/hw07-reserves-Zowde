@@ -74,7 +74,7 @@ public class SpellChecker {
 		}
 		if(sw=="")
 		   sw=word;
-		return sw;;
+		return sw;
 	}
 
 }
