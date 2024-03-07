@@ -6,7 +6,7 @@ public class SpellChecker {
 		String word = args[0];
 		word=lowerCase(word);
 		int threshold = Integer.parseInt(args[1]);
-		String[] dictionary = readDictionary("dictionary.txt");
+		String[] dictionary = readDictionary("dictionary.txt"); 
 		String correction = spellChecker(word, threshold, dictionary);
 		System.out.println(correction);
 	}
