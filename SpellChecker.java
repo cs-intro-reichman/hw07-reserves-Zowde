@@ -78,22 +78,26 @@ public class SpellChecker {
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		// Your code goes here
-		String sw="";
-		int dis =0;
-          for(int i=0;i<dictionary.length;i++)
+				String sw="";
+		int smallest=levenshtein(word,dictionary[0]);
+		for(int i=1;i<dictionary.length;i++)
 		{
-		   if(levenshtein(word,dictionary[i])==threshold)
+			
+		
+              if(levenshtein(word,dictionary[i])<=smallest)
 			 {
-                              return dictionary[i];
-			 }
-			dis=Math.abs(levenshtein(word,dictionary[i])-threshold);
-			if(i!=0&&dis>=Math.abs(levenshtein(word,dictionary[i])-threshold))//doesnt include the first iteration
-			{
-                          dis=Math.abs(levenshtein(word,dictionary[i])-threshold);
-			}
+                sw=dictionary[i];
+				smallest=Math.abs(levenshtein(word,dictionary[i])-threshold);
+			 } 
+		}
+		if(smallest>threshold)
+		{
+			return word;
 		}
 		if(sw=="")
+		{
 		   sw=word;
+		}
 		return sw;
 	}
 
