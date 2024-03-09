@@ -77,28 +77,30 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		// Your code goes here
-				String sw="";
-		int smallest=levenshtein(word,dictionary[0]);
+		 int smellestd=Math.abs(levenshtein(dictionary[0], word)-threshold);//initialize the smallest distance
+		 int distance=0,index=0;
+
 		for(int i=1;i<dictionary.length;i++)
 		{
-			
-		
-              if(levenshtein(word,dictionary[i])<=smallest)
-			 {
-                sw=dictionary[i];
-				smallest=Math.abs(levenshtein(word,dictionary[i])-threshold);
-			 } 
+          distance=Math.abs(levenshtein(dictionary[i], word)-threshold);
+		  if(distance==0&&dictionary[i].length()==word.length())
+		  {
+			return dictionary[i];
+		  }
+		  if(distance<=smellestd&&dictionary[i].length()==word.length())
+		  {
+			smellestd=distance;
+			index=i;
+		  }
+
 		}
-		if(smallest>threshold)
+		if(distance>threshold)
 		{
 			return word;
 		}
-		if(sw=="")
-		{
-		   sw=word;
-		}
-		return sw;
+		return dictionary[index];
+
+
 	}
 
 }
