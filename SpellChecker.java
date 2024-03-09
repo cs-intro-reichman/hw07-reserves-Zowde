@@ -82,7 +82,7 @@ public class SpellChecker {
 
 		for(int i=1;i<dictionary.length;i++)
 		{
-          distance=Math.abs(levenshtein(dictionary[i], word)-threshold);
+                distance=Math.abs(levenshtein(dictionary[i], word)-threshold);
 		  if(distance==0&&dictionary[i].length()==word.length())
 		  {
 			return dictionary[i];
